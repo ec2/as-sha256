@@ -7,7 +7,7 @@ export function add(a: i32, b: i32): i32 {
 }
 export class SHA256 {
   //private BLOCKSIZE: = 32;
-  private hash: u8[];
+  private hash: Uint8Array;
   private data: u8[];
   private datalen: u32;
   private bitlen: u64;
@@ -170,6 +170,7 @@ export class SHA256 {
     this.sha256_transform();
 
     for (i = 0; i < 4; ++i) {
+      this.hash = new Uint8Array(8);
       this.hash[i] = <u8>((this.state[0] >> (24 - i * 8)) & 0x000000ff);
       this.hash[i + 4] = <u8>((this.state[1] >> (24 - i * 8)) & 0x000000ff);
       this.hash[i + 8] = <u8>((this.state[2] >> (24 - i * 8)) & 0x000000ff);
@@ -180,10 +181,10 @@ export class SHA256 {
       this.hash[i + 28] = <u8>((this.state[7] >> (24 - i * 8)) & 0x000000ff);
     }
   }
-  public doIT() : u8 {
+  public doIT() : Uint8Array {
     this.sha256_update([0x97,0x98,0x99], 3);
     this.sha256_final()
     //return this.hash;
-    return this.hash[0]
+    return this.hash;
   }
 }

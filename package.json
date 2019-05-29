@@ -14,6 +14,5 @@
   "devDependencies": {
     "assemblyscript": "github:AssemblyScript/assemblyscript"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

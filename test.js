@@ -13,5 +13,6 @@ const wasm = require("./index.js")
 //const f = new wasm.Node(20, wasm.newString("boo"), null);
 console.log(wasm)
 const f = new wasm.SHA256();
-console.log(f.doIT())
+const h = f.doIT();
+// console.log(f.doIT())
 // console.log(wasm.getArray(f.doIT()))
