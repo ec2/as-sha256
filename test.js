@@ -36,4 +36,4 @@ function toHexString(byteArray) {
 const ts = new wasm.ts256();
 ts.update('abc',3)
 const res = ts.digest()
-console.log(`good shit `, toHexString(wasm.getArray(Uint8Array, res)))
+console.log(`as-sha256-fast `, toHexString(wasm.getArray(Uint8Array, res)))
